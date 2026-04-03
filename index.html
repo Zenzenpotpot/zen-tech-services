@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Zen Tech Services | IT Solutions & Automation</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Nav */
+        header {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', monospace;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            border: 1px solid #eef2ff;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 16px 0 8px;
+            color: #0f172a;
+        }
+
+        .price small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #475569;
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .service-list li {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            background: #e0e7ff;
+            color: #1e40af;
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* portfolio */
+        .portfolio-item {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .portfolio-content {
+            padding: 24px;
+        }
+
+        /* contact form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin: 12px 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 28px;
+            font-family: inherit;
+        }
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 32px 0;
+        }
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            section {
+                padding: 48px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="logo">ZEN<span style="color:#2563eb;">TECH</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+            <a href="#pricing" class="btn btn-outline">Price list</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section id="home" style="padding-top: 60px;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; justify-content: space-between;">
+                <div style="flex:1">
+                    <span class="badge" style="background:#dbeafe;">NCII CSS · Best in Overall</span>
+                    <h1 style="font-size: 3.2rem; font-weight: 800; margin: 20px 0 16px; line-height: 1.2;">Code. Repair. Automate.</h1>
+                    <p style="font-size: 1.2rem; color: #334155; max-width: 500px;">I'm Zen — 17 y/o IT specialist, software developer, and automation enthusiast. I build custom systems, repair printers, and create smart kiosks.</p>
+                    <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+                        <a href="#services" class="btn">Explore services →</a>
+                        <a href="#contact" class="btn btn-outline">Get quote</a>
+                    </div>
+                </div>
+                <div style="flex:1; text-align: center;">
+                    <i class="fas fa-microchip" style="font-size: 8rem; color:#2563eb; opacity: 0.7;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services + Pricing (integrated) -->
+    <section id="services" style="background: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title">⚡ What I offer</h2>
+            <div class="grid-3">
+                <!-- Lab assistance -->
+                <div class="card">
+                    <i class="fas fa-server"></i>
+                    <h3>Windows Server Labs</h3>
+                    <div class="price">₱1,500 – ₱3,500 <small>/lab</small></div>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> AD DS, DHCP, Clustering (Lab5)</li>
+                        <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> Unique full-desktop screenshots</li>
+                        <li><i class="fas fa-check-circle" style="color:#22c55e;"></i> 1 free revision</li>
+                    </ul>
+                    <p><strong>Package 1-3:</strong> ₱6,500 &nbsp;|&nbsp; <strong>4-6:</strong> ₱7,500 &nbsp;|&nbsp; <strong>All 6:</strong> ₱13,500</p>
+                </div>
+                <!-- Printer repair & printing -->
+                <div class="card">
+                    <i class="fas fa-print"></i>
+                    <h3>Printer Repair + Printing</h3>
+                    <div class="price">₱600 – ₱1,800 <small>/repair</small></div>
+                    <ul class="service-list">
+                        <li><i class="fas fa-wrench"></i> Paper jam, printhead, motherboard</li>
+                        <li><i class="fas fa-file-alt"></i> Printing: ₱1.50 B&W | ₱7 color</li>
+                        <li><i class="fas fa-tools"></i> 7-day warranty on repairs</li>
+                    </ul>
+                    <div><span class="badge">First repair ₱50 off</span></div>
+                </div>
+                <!-- Automatic printing machine (new) -->
+                <div class="card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AutoPrint Kiosk</h3>
+                    <div class="price">Coming 2026</div>
+                    <ul class="service-list">
+                        <li><i class="fas fa-qrcode"></i> Scan QR → upload → pay via Maya/GCash</li>
+                        <li><i class="fas fa-coins"></i> Self-service, 24/7 printing</li>
+                        <li><i class="fas fa-chart-line"></i> Own your machine or partner with Zen</li>
+                    </ul>
+                    <a href="#contact" class="btn" style="margin-top: 12px; background:#0f172a;">Reserve early access</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom software development -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">💻 Custom Software & IoT</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Grading System (VB.NET)</h3>
+                    <p>Complete desktop solution for schools: student records, grade computation, report generation.</p>
+                    <span class="price" style="font-size:1.4rem;">from ₱25,000</span>
+                </div>
+                <div class="card">
+                    <i class="fas fa-fingerprint"></i>
+                    <h3>Biometric Attendance</h3>
+                    <p>Arduino + MFRC522 (RFID) + AS608 fingerprint + SIM800L SMS alerts. Real-time logs.</p>
+                    <span class="price" style="font-size:1.4rem;">from ₱35,000</span>
+                </div>
+                <div class="card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Web development (soon)</h3>
+                    <p>PHP, MySQL, responsive dashboards. Transitioning to full-stack for international clients.</p>
+                    <div class="badge">Coming 2027</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio highlight -->
+    <section id="portfolio" style="background: #eef2ff;">
+        <div class="container">
+            <h2 class="section-title">📁 Featured projects</h2>
+            <div class="grid-3">
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
+                        <i class="fas fa-chalkboard-user" style="font-size:2rem;"></i>
+                        <h3 style="margin: 16px 0 8px;">Grading System for LSPU</h3>
+                        <p>VB.NET 2010, MySQL backend. Used by 5 instructors. Automated grade sheets and subject enrollment.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
+                        <i class="fas fa-id-card"></i>
+                        <h3 style="margin: 16px 0 8px;">RFID + Fingerprint Attendance</h3>
+                        <p>Arduino MEGA + MFRC522 + AS608 + SIM800L. SMS notification to parents/guardians.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-content">
+                        <i class="fas fa-cube"></i>
+                        <h3 style="margin: 16px 0 8px;">AutoPrint Kiosk (MVP)</h3>
+                        <p>Raspberry Pi, thermal printer, web interface. QR code payment integration (Maya).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full price list + strategies -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">💰 Complete price list (2026)</h2>
+            <div style="overflow-x: auto;">
+                <table style="width:100%; background: white; border-radius: 24px; border-collapse: collapse; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <thead style="background:#f1f5f9;">
+                        <tr><th style="padding: 16px; text-align: left;">Service</th><th>Price</th><th>Details</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding: 14px;">Lab 1 (Server install)</td><td>₱1,500</td><td>Core + Desktop Experience</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Lab 2 (AD DS)</td><td>₱2,500</td><td>DC, OU, user account</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Lab 3 (DHCP + domain join)</td><td>₱2,500</td><td>Client + DNS</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Lab 4 (SMB)</td><td>₱1,500</td><td>File sharing</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Lab 5 (Failover Cluster)</td><td>₱3,500</td><td>Two nodes + validation</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Lab 6 (RDS)</td><td>₱2,500</td><td>Session-based deployment</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Printer repair (basic)</td><td>₱600</td><td>Paper jam, roller cleaning</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Printer repair (major)</td><td>₱1,500</td><td>Motherboard/power supply</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Printing per page (B&W)</td><td>₱1.50</td><td>Bond paper</td></tr>
+                        <tr style="border-bottom:1px solid #e2e8f0;"><td>Printing per page (color)</td><td>₱7</td><td>Bond paper</td></tr>
+                        <tr><td>Binding (simple / hard)</td><td>₱20 / ₱60</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <div class="badge" style="background:#2563eb; color:white;">🎁 Referral: You get ₱100 off, friend ₱50 off</div>
+                <div class="badge" style="background:#2563eb; color:white;">🕒 Early bird (before 9am) ₱50 off</div>
+                <div class="badge" style="background:#2563eb; color:white;">📦 6‑lab bundle: ₱13,500 (save ₱1,500)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Google Form integration -->
+    <section id="contact" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">📬 Let's work together</h2>
+            <div class="contact-form">
+                <p style="margin-bottom: 20px;">Fill out the form below or email me directly at <strong>jantz3n17@gmail.com</strong> (placeholder).</p>
+                <!-- Replace YOUR_GOOGLE_FORM_ACTION with your actual Google Form action URL -->
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSf9dEXAMPLE/viewform?usp=pp_url" method="POST" target="_blank">
+                    <input type="text" name="entry.123456789" placeholder="Your name" required>
+                    <input type="email" name="entry.987654321" placeholder="Email address" required>
+                    <textarea rows="4" name="entry.555555555" placeholder="Tell me which lab / repair / project you need..."></textarea>
+                    <button type="submit" class="btn" style="width:100%;">Send inquiry →</button>
+                </form>
+                <p style="text-align: center; margin-top: 20px;">Or reach out directly: <i class="fab fa-facebook"></i> fb.me/zentech &nbsp;|&nbsp; <i class="fab fa-messenger"></i> Messenger &nbsp;|&nbsp; <i class="fas fa-phone-alt"></i> 0912 345 6789</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Zen Tech Services – NCII CSS · Best in Overall · Future software agency</p>
+        <p style="margin-top: 12px;"><i class="fas fa-map-marker-alt"></i> Philippines · <i class="fab fa-github"></i> <a href="#" style="color:#94a3b8;">github.com/zen-tech</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
